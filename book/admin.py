@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Book, Genre, Category
+from .models import Book, Genre, Category, Publisher, Languages
 
 
 @admin.register(Book)
@@ -9,10 +9,20 @@ class BookAdmin(admin.ModelAdmin):
 
 
 @admin.register(Genre)
-class BookAdmin(admin.ModelAdmin):
+class GenreAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(Category)
-class BookAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Publisher)
+class PublisherAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Languages)
+class LanguagesAdmin(admin.ModelAdmin):
     pass
