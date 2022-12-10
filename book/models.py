@@ -7,8 +7,7 @@ from author.models import Author
 class Book(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название книги')
     author = models.ForeignKey(Author, on_delete=models.CASCADE, max_length=100, verbose_name='Автор')
-    year_of_rel = models.IntegerField(verbose_name='Год выпуска',
-                                      validators=[MinValueValidator(1000), MaxValueValidator(9999)])
+    year_of_rel = models.DateField(verbose_name='Год выпуска')
     genre = models.CharField(max_length=100, verbose_name='Жанр', blank=True)
     # FIXME: сделать отдельную модель категорий, ForeignKey
     # category = models.CharField(max_length=100, verbose_name='Категория', blank=True)
@@ -28,3 +27,6 @@ class Book(models.Model):
         unique_together = ('title', 'author', 'year_of_rel', 'publisher')
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
+
+    def __str__(self) -> str:
+        return f'{self.title}'
