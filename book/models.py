@@ -26,14 +26,14 @@ class Book(Core):
 
 
 class Genre(Core):
-
+    """ Модель жанра """
     class Meta:
         verbose_name = 'Жанр'
         verbose_name_plural = 'Жанры'
 
 
 class Category(Core):
-
+    """ Модель категории """
     class Meta:
-        verbose_name = 'Жанр'
-        verbose_name_plural = 'Жанры'
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'

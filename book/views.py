@@ -9,7 +9,7 @@ class BooksAPIView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BooksSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['title', 'author__first_name', 'genre']
+    search_fields = ['title', 'author__first_name', 'genre__title']
 
 
 class BookDetail(generics.RetrieveAPIView):
