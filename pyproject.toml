@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "djangorest"
+version = "0.1.0"
+description = ""
+authors = ["shalyapinalexander@gmail.com <ashaliapin@dnomads.pro>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+asgiref = "3.5.2"
+Django = "3.2.16"
+django-cleanup = "6.0.0"
+django-filter = "22.1"
+djangorestframework = "3.14.0"
+pytz = "2022.6"
+sqlparse = "0.4.3"
+tzdata = "2022.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
