@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
 
 from author.models import Author
 
@@ -21,7 +22,8 @@ class Book(models.Model):
     # photoPreview = models.ImageField(validators=[validate_image], upload_to='cover',
     #                                   verbose_name='Изображения',
     #                                  blank=False, null=True)
-    book_file = models.FileField(upload_to='books', verbose_name='Файл с книгой', blank=True)
+    book_file = models.FileField(upload_to='books', verbose_name='Файл с книгой', blank=True,
+                                 validators=[FileExtensionValidator(allowed_extensions=['pdf', 'doc', 'docx', 'odt'])])
 
     class Meta:
         unique_together = ('title', 'author', 'year_of_rel', 'publisher')
