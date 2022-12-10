@@ -2,22 +2,16 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 
 from author.models import Author
+from core.models import Core
 
 
-class Book(models.Model):
+class Book(Core):
     """ Модель книги """
-    title = models.CharField(max_length=100, verbose_name='Название книги')
     author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name='Автор')
     year_of_rel = models.DateField(verbose_name='Год выпуска')
-    genre = models.CharField(max_length=100, verbose_name='Жанр', blank=True)
-    # FIXME: сделать отдельную модель категорий, ForeignKey
-    # category = models.CharField(max_length=100, verbose_name='Категория', blank=True)
+    genre = models.ManyToManyField('Genre', verbose_name='Жанр', blank=True)
+    category = models.ManyToManyField('Category', verbose_name='Категория', blank=True)
     publisher = models.CharField(max_length=100, verbose_name='Издательство', blank=True)
-
-    # def validate_image(value):
-    #     size_limit = 2 * 1024 * 1024
-    #     if value.size > size_limit:
-    #         raise forms.ValidationError('Файл слишком большой. Размер файла не должен превышать 2MB')
 
     # photoPreview = models.ImageField(validators=[validate_image], upload_to='cover',
     #                                   verbose_name='Изображения',
@@ -30,5 +24,16 @@ class Book(models.Model):
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
 
-    def __str__(self) -> str:
-        return f'{self.title}'
+
+class Genre(Core):
+
+    class Meta:
+        verbose_name = 'Жанр'
+        verbose_name_plural = 'Жанры'
+
+
+class Category(Core):
+
+    class Meta:
+        verbose_name = 'Жанр'
+        verbose_name_plural = 'Жанры'
