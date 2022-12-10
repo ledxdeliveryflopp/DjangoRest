@@ -25,10 +25,6 @@ class Book(Core):
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        return
-
 
 class Genre(Core):
     """ Модель жанра """

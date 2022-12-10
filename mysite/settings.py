@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_filters',
+    'django_cleanup',
 
     'book',
     'author',
