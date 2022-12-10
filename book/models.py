@@ -12,6 +12,7 @@ class Book(Core):
     genre = models.ManyToManyField('Genre', verbose_name='Жанр', blank=True)
     category = models.ManyToManyField('Category', verbose_name='Категория', blank=True)
     publisher = models.ManyToManyField('Publisher', verbose_name='Издательство', blank=True)
+    lang = models.ManyToManyField('Languages', verbose_name='Язык книги', blank=True)
 
     # photoPreview = models.ImageField(validators=[validate_image], upload_to='cover',
     #                                   verbose_name='Изображения',
@@ -23,6 +24,10 @@ class Book(Core):
         unique_together = ('title', 'author', 'year_of_rel')
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        return
 
 
 class Genre(Core):
@@ -44,3 +49,10 @@ class Publisher(Core):
     class Meta:
         verbose_name = 'Издательство'
         verbose_name_plural = 'Издательство'
+
+
+class Languages(Core):
+    """ Модель языка """
+    class Meta:
+        verbose_name = 'Язык книги'
+        verbose_name_plural = 'Язык книги'
