@@ -1,10 +1,10 @@
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 from author.models import Author
 
 
 class Book(models.Model):
+    """ Модель книги """
     title = models.CharField(max_length=100, verbose_name='Название книги')
     author = models.ForeignKey(Author, on_delete=models.CASCADE, max_length=100, verbose_name='Автор')
     year_of_rel = models.DateField(verbose_name='Год выпуска')
