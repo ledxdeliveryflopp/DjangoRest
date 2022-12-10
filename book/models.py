@@ -11,7 +11,7 @@ class Book(Core):
     year_of_rel = models.DateField(verbose_name='Год выпуска')
     genre = models.ManyToManyField('Genre', verbose_name='Жанр', blank=True)
     category = models.ManyToManyField('Category', verbose_name='Категория', blank=True)
-    publisher = models.CharField(max_length=100, verbose_name='Издательство', blank=True)
+    publisher = models.ManyToManyField('Publisher', verbose_name='Издательство', blank=True)
 
     # photoPreview = models.ImageField(validators=[validate_image], upload_to='cover',
     #                                   verbose_name='Изображения',
@@ -20,7 +20,7 @@ class Book(Core):
                                  validators=[FileExtensionValidator(allowed_extensions=['pdf', 'doc', 'docx', 'odt'])])
 
     class Meta:
-        unique_together = ('title', 'author', 'year_of_rel', 'publisher')
+        unique_together = ('title', 'author', 'year_of_rel')
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
 
@@ -37,3 +37,10 @@ class Category(Core):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+
+class Publisher(Core):
+    """ Модель издательство """
+    class Meta:
+        verbose_name = 'Издательство'
+        verbose_name_plural = 'Издательство'
