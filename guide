@@ -1,0 +1,7 @@
+pip install poetry
+poetry update
+poetry show --tree
+poetry add lib_name
+
+для поиска
+http://127.0.0.1:8800/api/v1/book/all/?search="что искать"
