@@ -14,11 +14,12 @@ class Book(Core):
     publisher = models.ManyToManyField('Publisher', verbose_name='Издательство', blank=True)
     lang = models.ManyToManyField('Languages', verbose_name='Язык книги', blank=True)
 
-    # photoPreview = models.ImageField(validators=[validate_image], upload_to='cover',
-    #                                   verbose_name='Изображения',
-    #                                  blank=False, null=True)
+    photoPreview = models.ImageField(upload_to='cover', verbose_name='Изображения', blank=True)
     book_file = models.FileField(upload_to='books', verbose_name='Файл с книгой', blank=True,
-                                 validators=[FileExtensionValidator(allowed_extensions=['pdf', 'doc', 'docx', 'odt'])])
+                                 validators=[FileExtensionValidator(allowed_extensions=['pdf',
+                                                                                        'doc',
+                                                                                        'docx',
+                                                                                        'odt'])])
 
     class Meta:
         unique_together = ('title', 'author', 'year_of_rel')

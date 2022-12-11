@@ -5,7 +5,7 @@ description = ""
 authors = ["shalyapinalexander@gmail.com <ashaliapin@dnomads.pro>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8.6"
 asgiref = "3.5.2"
 Django = "3.2.16"
 django-cleanup = "6.0.0"
@@ -14,6 +14,7 @@ djangorestframework = "3.14.0"
 pytz = "2022.6"
 sqlparse = "0.4.3"
 tzdata = "2022.7"
+pillow = "^9.3.0"
 
 [tool.poetry.dev-dependencies]
 

@@ -1,4 +1,5 @@
 from rest_framework import generics, filters
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Book
 from .serializer import BooksSerializer
@@ -10,6 +11,7 @@ class BooksAPIView(generics.ListCreateAPIView):
     serializer_class = BooksSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['title', 'author__first_name', 'genre__title']
+    # permission_classes = [IsAuthenticated]
 
 
 class BookDetail(generics.RetrieveAPIView):
