@@ -37,8 +37,8 @@ class BooksSerializer(ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'year_of_rel', 'book_file', 'genre', 'category', 'publisher',
-                  'lang', 'author']
+        fields = ['id', 'title', 'year_of_rel', 'genre', 'category', 'publisher',
+                  'lang', 'author', 'book_file', 'photoPreview']
 
     @staticmethod
     def get_author(obj) -> str:
