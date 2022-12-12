@@ -2,7 +2,7 @@
 name = "djangorest"
 version = "0.1.0"
 description = ""
-authors = ["shalyapinalexander@gmail.com <ashaliapin@dnomads.pro>"]
+authors = ["ledxdeliveryflopp <ledxdeliveryflopp@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8.6"
