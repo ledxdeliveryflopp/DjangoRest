@@ -5,7 +5,7 @@ description = ""
 authors = ["ledxdeliveryflopp <ledxdeliveryflopp@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8.6"
+python = "^3.7.3"
 asgiref = "3.5.2"
 Django = "3.2.16"
 django-cleanup = "6.0.0"

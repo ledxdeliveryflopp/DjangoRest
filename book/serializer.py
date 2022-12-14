@@ -30,10 +30,10 @@ class LanguagesSerializer(ModelSerializer):
 class BooksSerializer(ModelSerializer):
     """ """
     author = SerializerMethodField(method_name='get_author')
-    genre = GenreSerializer(many=True)
-    category = CategorySerializer(many=True)
-    publisher = PublisherSerializer(many=True)
-    lang = LanguagesSerializer(many=True)
+    genre = GenreSerializer()
+    category = CategorySerializer()
+    publisher = PublisherSerializer()
+    lang = LanguagesSerializer()
 
     class Meta:
         model = Book
@@ -44,3 +44,4 @@ class BooksSerializer(ModelSerializer):
     def get_author(obj) -> str:
         return f'{obj.author.first_name} ' \
                f'{obj.author.last_name}'
+

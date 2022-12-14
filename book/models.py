@@ -9,10 +9,10 @@ class Book(Core):
     """ Модель книги """
     author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name='Автор')
     year_of_rel = models.DateField(verbose_name='Год выпуска')
-    genre = models.ManyToManyField('Genre', verbose_name='Жанр', blank=True)
-    category = models.ManyToManyField('Category', verbose_name='Категория', blank=True)
-    publisher = models.ManyToManyField('Publisher', verbose_name='Издательство', blank=True)
-    lang = models.ManyToManyField('Languages', verbose_name='Язык книги', blank=True)
+    genre = models.ForeignKey('Genre', on_delete=models.CASCADE ,verbose_name='Жанр', blank=True)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name='Категория', blank=True)
+    publisher = models.ForeignKey('Publisher', on_delete=models.CASCADE, verbose_name='Издательство', blank=True)
+    lang = models.ForeignKey('Languages', on_delete=models.CASCADE, verbose_name='Язык книги', blank=True)
 
     photoPreview = models.ImageField(upload_to='cover', verbose_name='Изображения', blank=True)
     book_file = models.FileField(upload_to='books', verbose_name='Файл с книгой', blank=True,
