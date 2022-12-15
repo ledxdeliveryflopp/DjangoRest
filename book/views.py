@@ -19,3 +19,9 @@ class BookDetail(generics.RetrieveAPIView):
     """ Получить информацию о книге по ее id """
     queryset = Book.objects.all()
     serializer_class = BooksSerializer
+
+
+class BookCreate(generics.CreateAPIView):
+    """ Получить информацию о книге по ее id """
+    queryset = Book.objects.all()
+    serializer_class = BooksSerializer
